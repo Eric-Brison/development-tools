@@ -8,7 +8,7 @@ use Dcp\DevTools\Webinst\Webinst;
 
 $getopt = new Getopt(array(
     (new Option('s', 'sourcePath', Getopt::REQUIRED_ARGUMENT))
-        ->setDescription('path to the source of the module (nedded)')
+        ->setDescription('path to the source of the module (needed)')
         ->setValidation(function ($inputDir) {
             if (!is_dir($inputDir)) {
                 print "The input dir must be a valid dir ($inputDir)";
@@ -32,7 +32,7 @@ $getopt = new Getopt(array(
         ),
     (new Option('n', 'file-name', Getopt::REQUIRED_ARGUMENT))
         ->setDescription('output file name')
-        ->setDefaultValue('{{moduleName}}-{{version}}-{{release}}.webinst'),
+        ->setDefaultValue('{{moduleName}}-{{version}}-{{release}}.app'),
     (new Option('a', 'auto-release', Getopt::NO_ARGUMENT))
         ->setDescription('append current timestamp to release to force upgrade'),
     (new Option(null, 'force', Getopt::NO_ARGUMENT))

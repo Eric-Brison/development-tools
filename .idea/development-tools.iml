@@ -11,12 +11,14 @@
           <root url="phar://$MODULE_DIR$/box.phar/" />
           <root url="phar://$MODULE_DIR$/composer.phar/" />
           <root url="phar://$MODULE_DIR$/dynacase-devtool.phar/" />
+          <root url="phar://$MODULE_DIR$/anakeen-devtool.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/build/dynacase-devtool.phar/" />
           <root url="phar://$MODULE_DIR$/box.phar/" />
           <root url="phar://$MODULE_DIR$/composer.phar/" />
           <root url="phar://$MODULE_DIR$/dynacase-devtool.phar/" />
+          <root url="phar://$MODULE_DIR$/anakeen-devtool.phar/" />
         </SOURCES>
       </library>
     </orderEntry>

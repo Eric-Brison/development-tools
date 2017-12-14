@@ -2,7 +2,7 @@
     "files" : ["version.json"],
     "directories" :  ["src", "bin", "vendor", "templates"],
     "main" :   "bin/devTool.php",
-    "output" : "dynacase-devtool.phar",
+    "output" : "anakeen-devtool.phar",
     "stub" :   true,
     "chmod" : "0755"
 }

@@ -1,6 +1,6 @@
-.PHONY: clean realclean dynacase-devtool.phar dynacase-devtool-win32.zip help
+.PHONY: clean realclean anakeen-devtool.phar anakeen-devtool-win32.zip help
 
-BUNDLE_DIR=dynacase-devtool-bundle
+BUNDLE_DIR=anakeen-devtool-bundle
 COMPOSER_VERSION=1.0.0
 PHP_VERSION=7.0.19
 BUILD_DIR=./build
@@ -35,9 +35,9 @@ box2installer-sha256 = bb4896d231f64e7e0383660e5548092e5447619aaface50103ac0af41
 
 all: linux win32 ## generate all binaries
 
-linux: dynacase-devtool.phar ## generate binary for linux
+linux: anakeen-devtool.phar ## generate binary for linux
 
-win32: dynacase-devtool-win32.zip ## generate binary for windows
+win32: anakeen-devtool-win32.zip ## generate binary for windows
 
 composer.phar:
 	./fetch $(composer-path) $@ $(composer-sha256)
@@ -48,7 +48,7 @@ box.phar:
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-dynacase-devtool.phar: composer.phar box.phar $(BUILD_DIR)
+anakeen-devtool.phar: composer.phar box.phar $(BUILD_DIR)
 	php composer.phar install
 	php -d phar.readonly=false box.phar build
 	mv $@ $(BUILD_DIR)
@@ -88,7 +88,7 @@ libiconv-get: libiconv.tar.lzma
 libiconv.tar.lzma:
 	./fetch $(libiconv-path) $@ $(libiconv-sha256)
 
-dynacase-devtool-win32.zip: php-get gettext-get libgettextpo-get libintl-get gcc-core-get gcc-c++-get libiconv-get dynacase-devtool.phar dynacase-devtool.bat $(BUILD_DIR)
+anakeen-devtool-win32.zip: php-get gettext-get libgettextpo-get libintl-get gcc-core-get gcc-c++-get libiconv-get anakeen-devtool.phar anakeen-devtool.bat $(BUILD_DIR)
 	mkdir -p "tmp/${BUNDLE_DIR}"
 	cd "tmp/${BUNDLE_DIR}" && yes | unzip ../../php.zip
 	cp "tmp/${BUNDLE_DIR}/php.ini-production" "tmp/${BUNDLE_DIR}/php.ini"
@@ -104,10 +104,10 @@ dynacase-devtool-win32.zip: php-get gettext-get libgettextpo-get libintl-get gcc
 	tar -C "tmp/${BUNDLE_DIR}" --lzma -xf gcc-core.tar.lzma
 	tar -C "tmp/${BUNDLE_DIR}" --lzma -xf gcc-c++.tar.lzma
 	tar -C "tmp/${BUNDLE_DIR}" --lzma -xf libiconv.tar.lzma
-	cp  $(BUILD_DIR)/dynacase-devtool.phar "tmp/${BUNDLE_DIR}"
-	cp dynacase-devtool.bat tmp
-	cd tmp && zip -r dynacase-devtool-win32.zip "${BUNDLE_DIR}" dynacase-devtool.bat
-	mv tmp/dynacase-devtool-win32.zip $(BUILD_DIR)
+	cp  $(BUILD_DIR)/anakeen-devtool.phar "tmp/${BUNDLE_DIR}"
+	cp anakeen-devtool.bat tmp
+	cd tmp && zip -r anakeen-devtool-win32.zip "${BUNDLE_DIR}" anakeen-devtool.bat
+	mv tmp/anakeen-devtool-win32.zip $(BUILD_DIR)
 
 clean-all: clean-buildtools clean-bin clean-libs clean-tmp ## remove temp, lib, binaries files and build tools
 
@@ -116,8 +116,8 @@ clean-buildtools: ## remove build tools
 	rm -f box.phar
 
 clean-bin: ## remove binaries
-	rm -f $(BUILD_DIR)/dynacase-devtool.phar
-	rm -f $(BUILD_DIR)/dynacase-devtool-win32.zip
+	rm -f $(BUILD_DIR)/anakeen-devtool.phar
+	rm -f $(BUILD_DIR)/anakeen-devtool-win32.zip
 
 clean: clean-libs clean-tmp ## remove temp and lib files
 
